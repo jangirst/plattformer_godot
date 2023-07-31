@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://oe7lnc00rnh7"]
+
+[ext_resource type="Script" path="res://load.gd" id="1_umci7"]
+
+[node name="Load" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+offset_left = 446.0
+offset_top = 304.0
+offset_right = 728.0
+offset_bottom = 334.0
+text = "!!! This feature is not implemented !!!"
+
+[node name="back" type="Button" parent="."]
+offset_left = 405.0
+offset_top = 367.0
+offset_right = 768.0
+offset_bottom = 475.0
+tooltip_text = "Click this button to quit the game."
+text = "Back"
+script = ExtResource("1_umci7")
+
+[connection signal="pressed" from="back" to="back" method="_on_pressed"]
