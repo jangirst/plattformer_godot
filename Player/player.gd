@@ -1,6 +1,5 @@
 extends CharacterBody2D
 
-
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
@@ -24,7 +23,7 @@ func _physics_process(delta):
 	var direction = Input.get_axis("ui_left", "ui_right")
 	
 	if direction == -1:
-		get_node("AnimatedSprite2D").flip_h = true 
+		get_node("AnimatedSprite2D").flip_h = true  
 	elif direction == 1:
 		get_node("AnimatedSprite2D").flip_h = false
 	
@@ -32,11 +31,12 @@ func _physics_process(delta):
 		velocity.x = direction * SPEED
 		if velocity.y == 0:
 			anim.play("Run")
+			
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		if velocity.y == 0:
 			anim.play("Idle")
-		
+	
 	if velocity.y > 0:
 		anim.play("Fall")
 
