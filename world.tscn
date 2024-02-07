@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://b13aqpuqsypej"]
+[gd_scene load_steps=9 format=3 uid="uid://b13aqpuqsypej"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_mp2ww"]
 [ext_resource type="Texture2D" uid="uid://cmaoiiubjhmnf" path="res://sunny-land/assets/environment/tileset.png" id="2_ba87r"]
 [ext_resource type="PackedScene" uid="uid://cn7grrhmlkequ" path="res://Player/player.tscn" id="2_bx483"]
 [ext_resource type="Script" path="res://Bg.gd" id="2_vsvw5"]
 [ext_resource type="Texture2D" uid="uid://dg65tdhghsff2" path="res://sunny-land/assets/environment/back.png" id="3_4g7l8"]
+[ext_resource type="PackedScene" uid="uid://ds1m566a025hn" path="res://Frog.tscn" id="6_bs2bv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7pvp7"]
 texture = ExtResource("2_ba87r")
@@ -426,5 +427,13 @@ position = Vector2(581.75, 327.75)
 scale = Vector2(3.1263, 2.81042)
 texture = ExtResource("3_4g7l8")
 
-[node name="Player" parent="." instance=ExtResource("2_bx483")]
-position = Vector2(262, 271)
+[node name="Player" type="Node2D" parent="."]
+
+[node name="Player" parent="Player" instance=ExtResource("2_bx483")]
+unique_name_in_owner = true
+position = Vector2(94, 400)
+
+[node name="Mobs" type="Node2D" parent="."]
+
+[node name="Frog" parent="Mobs" instance=ExtResource("6_bs2bv")]
+position = Vector2(299, 378)
