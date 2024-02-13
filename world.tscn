@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b13aqpuqsypej"]
+[gd_scene load_steps=11 format=3 uid="uid://b13aqpuqsypej"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_mp2ww"]
 [ext_resource type="Texture2D" uid="uid://cmaoiiubjhmnf" path="res://sunny-land/assets/environment/tileset.png" id="2_ba87r"]
@@ -407,6 +407,30 @@ texture = ExtResource("2_ba87r")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_7pvp7")
 
+[sub_resource type="GDScript" id="GDScript_v23dj"]
+script/source = "extends Label
+
+
+func _ready():
+	pass
+
+
+func _process(delta):
+	text = \"HP: \" + str(Game.PlayerHP)
+"
+
+[sub_resource type="GDScript" id="GDScript_g50k8"]
+script/source = "extends Label
+
+
+func _ready():
+	pass
+
+
+func _process(delta):
+	text = \"Gold: \" + str(Game.Gold)
+"
+
 [node name="World" type="Node2D"]
 script = ExtResource("1_mp2ww")
 
@@ -437,3 +461,40 @@ position = Vector2(94, 400)
 
 [node name="Frog" parent="Mobs" instance=ExtResource("6_bs2bv")]
 position = Vector2(299, 378)
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Hp" type="Label" parent="UI"]
+offset_left = 49.0
+offset_top = 61.0
+offset_right = 95.0
+offset_bottom = 95.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "HP: "
+script = SubResource("GDScript_v23dj")
+
+[node name="Gold" type="Label" parent="UI"]
+offset_left = 48.0
+offset_top = 93.0
+offset_right = 94.0
+offset_bottom = 127.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "HP: "
+script = SubResource("GDScript_g50k8")
+
+[node name="Frog" parent="." instance=ExtResource("6_bs2bv")]
+position = Vector2(580, 261)
+
+[node name="Frog2" parent="." instance=ExtResource("6_bs2bv")]
+position = Vector2(557, 369)
+
+[node name="Frog3" parent="." instance=ExtResource("6_bs2bv")]
+position = Vector2(711, 316)
+
+[node name="Frog4" parent="." instance=ExtResource("6_bs2bv")]
+position = Vector2(1101, 417)
+
+[node name="Frog5" parent="." instance=ExtResource("6_bs2bv")]
+position = Vector2(1006, 418)
