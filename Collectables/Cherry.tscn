@@ -1,0 +1,57 @@
+[gd_scene load_steps=11 format=3 uid="uid://vuqckq01ht5j"]
+
+[ext_resource type="Texture2D" uid="uid://56jqxcghupbu" path="res://Sunny-land-assets-files/PNG/sprites/cherry/cherry-1.png" id="1_k8bu8"]
+[ext_resource type="Script" path="res://Collectables/Cherry.gd" id="1_xwoci"]
+[ext_resource type="Texture2D" uid="uid://bmyev37b85pwc" path="res://Sunny-land-assets-files/PNG/sprites/cherry/cherry-2.png" id="2_y00er"]
+[ext_resource type="Texture2D" uid="uid://cll0i6qof846j" path="res://Sunny-land-assets-files/PNG/sprites/cherry/cherry-3.png" id="3_tvnds"]
+[ext_resource type="Texture2D" uid="uid://dvdjiy04r6860" path="res://Sunny-land-assets-files/PNG/sprites/cherry/cherry-4.png" id="4_tujof"]
+[ext_resource type="Texture2D" uid="uid://bvkpfe1bvbjx7" path="res://Sunny-land-assets-files/PNG/sprites/cherry/cherry-5.png" id="5_5dwxp"]
+[ext_resource type="Texture2D" uid="uid://cjwjthelrt7ox" path="res://Sunny-land-assets-files/PNG/sprites/cherry/cherry-6.png" id="6_edgrl"]
+[ext_resource type="Texture2D" uid="uid://cs1xm6n8ltwsk" path="res://Sunny-land-assets-files/PNG/sprites/cherry/cherry-7.png" id="7_h00i8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4gjjt"]
+radius = 6.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_85foy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_k8bu8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_y00er")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_tvnds")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_tujof")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_5dwxp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_edgrl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_h00i8")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[node name="Cherry" type="Area2D"]
+script = ExtResource("1_xwoci")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 0)
+shape = SubResource("CircleShape2D_4gjjt")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_85foy")
+animation = &"Idle"
+frame_progress = 0.771312
+metadata/_edit_lock_ = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
